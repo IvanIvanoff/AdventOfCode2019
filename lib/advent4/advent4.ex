@@ -27,8 +27,8 @@ defmodule Advent4 do
 
   defp has_same_neighbour?([]), do: false
   defp has_same_neighbour?([_]), do: false
-  defp has_same_neighbour?([a, a | rest]), do: true
-  defp has_same_neighbour?([a, b | rest]), do: has_same_neighbour?([b | rest])
+  defp has_same_neighbour?([a, a | _rest]), do: true
+  defp has_same_neighbour?([_a, b | rest]), do: has_same_neighbour?([b | rest])
 
   def same_neighbour_strike_lengths([num | list]) do
     # + 'd' is hack to handle if the strike ends with the last digit
@@ -51,14 +51,8 @@ defmodule Advent4 do
         end
       )
 
-    strike_lengths |> IO.inspect(label: "#{inspect([num | list])}", limit: :infinity)
+    strike_lengths
   end
-
-  defp has_same_neighbour_no_more_than_2?([]), do: false
-  defp has_same_neighbour_no_more_than_2?([_]), do: false
-  defp has_same_neighbour_no_more_than_2?([a, a, a | rest]), do: false
-  defp has_same_neighbour_no_more_than_2?([a, a | rest]), do: true
-  defp has_same_neighbour_no_more_than_2?([a, b | rest]), do: has_same_neighbour?([b | rest])
 
   defp not_decreasing?([]), do: true
   defp not_decreasing?([_]), do: true
