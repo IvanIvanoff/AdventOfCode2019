@@ -9,9 +9,7 @@ defmodule Advent3 do
     wire1_path = build_path(wire1)
     wire2_path = build_path(wire2)
 
-    intersection =
-      MapSet.intersection(wire1_path, wire2_path)
-      |> IO.inspect(label: "13", limit: :infinity)
+    intersection = MapSet.intersection(wire1_path, wire2_path)
 
     {x, y} = Enum.min_by(intersection, fn {x, y} -> abs(x) + abs(y) end)
     {x, y, abs(x) + abs(y)}
@@ -27,9 +25,7 @@ defmodule Advent3 do
     wire1_path_points = MapSet.new(Map.keys(wire1_path))
     wire2_path_points = MapSet.new(Map.keys(wire2_path))
 
-    intersection =
-      MapSet.intersection(wire1_path_points, wire2_path_points)
-      |> IO.inspect(label: "29", limit: :infinity)
+    intersection = MapSet.intersection(wire1_path_points, wire2_path_points)
 
     {x, y} =
       Enum.min_by(intersection, fn {x, y} ->
